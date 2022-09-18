@@ -1,0 +1,86 @@
+.posts-content {
+  background: #fff;
+  padding: 35px 40px;
+  border-radius: 10px;
+  text-align: left;
+  margin: 2% auto;
+  box-shadow: 1px 1px 20px rgba(120, 120, 120, 0.3);
+}
+
+.posts-content p {
+  font-size: 30px;
+}
+
+.imgsize {
+  width: 50%;
+  height: auto;
+}
+
+.post-meta {
+  padding-top: 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  font-size: 12px;
+  padding-left: 2px;
+  background: #fff;
+}
+
+#main-content {
+  display: flex;
+  background: white;
+  align-items: center;
+  text-align: center;
+}
+
+button:hover {
+  box-shadow: #fd2d01 4px 4px 10px;
+  cursor: pointer;
+}
+.buttonChanges {
+  display: flex;
+  justify-content: right;
+}
+button {
+  width: 95px;
+  height: 35px;
+  display: block;
+  margin: 20px auto;
+  background-color: #fd2d01;
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+  border-radius: 30px;
+  margin: 8px;
+  color: #fff;
+  border: none;
+}
+.buttonDelete {
+  color: #fff;
+  font-weight: bold;
+}
+
+.checkbox {
+  display: none;
+  cursor: pointer;
+}
+.likeItem {
+  color: #fd2d01;
+}
+.img-container {
+  display: flex;
+  justify-content: center;
+  max-width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+  .container-responsif {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+}
+
+@media all and (min-width: 501px) and (max-width: 1024px) {
+  .container-responsif {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+}

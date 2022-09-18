@@ -1,0 +1,69 @@
+.example-card {
+  width: 61%;
+  margin: 2% auto;
+  background: #fff;
+  border: none;
+  padding: 25px 30px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 1px 1px 20px rgba(120, 120, 120, 0.3);
+}
+
+::ng-deep .mat-card-header-text {
+  width: 100%;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-card-header-text {
+  width: 100%;
+}
+.mat-card-header {
+  width: 100%;
+}
+
+.buttonSubmitNewPost {
+  color: #fd2d01;
+}
+.image-upload {
+  max-height: 150px;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.publish {
+  background-color: #fd2d01;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.add-image {
+  background-color: #4e5166;
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .container-responsif {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  .example-card {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .container-responsif {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+  .example-card {
+    width: 75%;
+  }
+}
