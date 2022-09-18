@@ -1,5 +1,7 @@
+// import package multer
 const multer = require("multer");
 
+//dictionnaire pour créer l'extension du fichier à partir du MIMETYPE
 const MIME_TYPES = {
   "image/jpg": "jpg",
   "image/jpeg": "jpg",
@@ -7,13 +9,14 @@ const MIME_TYPES = {
 };
 
 const storage = multer.diskStorage({
+  // enregistrer les fichiers entrants :
   destination: (req, file, callback) => {
     callback(null, "images");
   },
   filename: (req, file, callback) => {
-    const name = file.originalname.split(" ").join("_");
+    const name = file.originalname.split(" ").join("_"); //gestion des espaces dans le nom d'origine du fichier
     const extension = MIME_TYPES[file.mimetype];
-    callback(null, Date.now() + "-" + name);
+    callback(null, Date.now() + "-" + name); //créé le filename complet
   },
 });
 

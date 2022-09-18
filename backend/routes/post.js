@@ -1,9 +1,13 @@
-const express = require("express");
-const router = express.Router();
+const express = require("express"); // import express
+const router = express.Router(); // crée routeur express
 
+//Importation de auth pour la sécurité des routes
 const auth = require("../middleware/auth");
+
+//Imporation de multer pour les images
 const multer = require("../middleware/multer-config");
 
+//Imporatation du controller des post
 const postCtrl = require("../controllers/post");
 
 router.get("/", auth, postCtrl.getAllPosts);

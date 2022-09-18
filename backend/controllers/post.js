@@ -66,10 +66,6 @@ exports.modifyPost = (req, res, next) => {
           const desc = Obj.description; /*Safety connection*/
           const AuthId = Obj.userId; /*Safety connection*/
 
-          //console.log(desc);
-          //console.log(AuthId);
-          //console.log(req.auth);
-
           if (req.auth.isAdmin || req.auth.userId == AuthId) {
             /*Safety connection*/
             Post.updateOne(
@@ -95,7 +91,6 @@ exports.modifyPost = (req, res, next) => {
       })
       .catch((err) => res.status(500).json(err));
   } else {
-    //console.log(req.body);
     const Obj = req.body;
     const desc = Obj.description;
     const AuthId = Obj.userId;

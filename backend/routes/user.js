@@ -1,9 +1,10 @@
+//Impoortation Express
 const router = require("express").Router();
 const rateLimit = require("express-rate-limit"); // package de prévention des forces brutes
 
+//Imporatation des controllers
 const userCtrl = require("../controllers/user");
 const password = require("../middleware/password-validator");
-const multer = require("../middleware/multer-config");
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
