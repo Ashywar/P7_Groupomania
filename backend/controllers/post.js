@@ -61,15 +61,11 @@ exports.modifyPost = (req, res, next) => {
         }`;
         fs.unlink(`images/${filename}`, () => {
           //console.log(JSON.parse(req.body.post));
-
           const Obj = JSON.parse(req.body.post); /*Safety connection*/
           const desc = Obj.description; /*Safety connection*/
           const AuthId = Obj.userId; /*Safety connection*/
-
           if (req.auth.isAdmin || req.auth.userId == AuthId) {
-            /*Safety connection*/
             Post.updateOne(
-              /* post Updated */
               {
                 _id: postId,
               },
@@ -91,6 +87,7 @@ exports.modifyPost = (req, res, next) => {
       })
       .catch((err) => res.status(500).json(err));
   } else {
+    //console.log(req.body);
     const Obj = req.body;
     const desc = Obj.description;
     const AuthId = Obj.userId;
@@ -116,30 +113,32 @@ exports.modifyPost = (req, res, next) => {
 
 // Delete a Post
 exports.deletePost = (req, res, next) => {
-  const Obj = req.body;
-  const desc = Obj.description;
-  const AuthId = Obj.userId;
-  if (req.auth.isAdmin || req.auth.userId == AuthId) {
-  }
   Post.findOne({
     _id: req.params.id,
   })
     .then((post) => {
       const filename = post.imageUrl.split("/images/")[1];
       fs.unlink(`images/${filename}`, () => {
-        Post.deleteOne({
-          _id: req.params.id,
-        })
-          .then(() =>
-            res.status(200).json({
-              message: "Post deleted !",
-            })
-          )
-          .catch((error) =>
-            res.status(400).json({
-              error,
-            })
-          );
+        const Obj = req.body;
+        const desc = Obj.description;
+        const AuthId = Obj.userId;
+        if (req.auth.isAdmin || req.auth.userId == AuthId) {
+          Post.deleteOne({
+            _id: req.params.id,
+          })
+            .then(() =>
+              res.status(200).json({
+                message: "Post deleted !",
+              })
+            )
+            .catch((error) =>
+              res.status(400).json({
+                error,
+              })
+            );
+        } else {
+          throw new Error("Permission Denied !!");
+        }
       });
     })
     .catch((error) =>
